@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 3: Responsive Grid</title>
+    <style>
+        body { margin: 0; font-family: sans-serif; }
+
+        /* Mobile  Approach (< 600px) 
+           Mobile (< 600px)/vertical
+        */
+        .container {
+            display: grid;
+            height: 100vh;
+            gap: 10px;
+            /*single column for mobile */
+            grid-template-columns: 1fr; 
+            grid-template-rows: auto auto 1fr auto; 
+            grid-template-areas:  "header" "sidebar" "main" "footer";
+        }
+
+        /* Styling for visualization */
+        header { 
+            grid-area: header; 
+            text-align: center; 
+            background: #4b93dc; 
+            color: white; 
+            padding: 20px;
+            font-family: 'Times New Roman', Times, serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+         }
+
+        aside  { 
+            grid-area: sidebar; 
+            text-align: center; 
+            background: #7396ae; 
+            padding: 20px; 
+            font-family: 'Times New Roman', Times, serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        main   { 
+            grid-area: main; 
+            text-align: center; 
+            background: #5f6c6f; 
+            padding: 20px; 
+            font-family: 'Times New Roman', Times, serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        footer { 
+            grid-area: footer; 
+            background: #4b93dc; 
+            color: white; 
+            padding: 20px;
+            font-family: 'Times New Roman', Times, serif;
+            text-align: center; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /*Tablet (600px - 900px) /Sidebar above main content */
+        @media (min-width: 600px) and (max-width: 900px) {
+            .container {
+                /* Still single column but sidebar above main */
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto 1fr auto;
+                grid-template-areas: 
+                    "header"
+                    "sidebar"
+                    "main"
+                    "footer";
+            }
+        }
+
+        /* Desktop (> 900px): Sidebar + main content*/
+        @media (min-width: 900px) {
+            .container {
+                /* Switching to 2 columns */
+                grid-template-columns: 1fr 3fr; 
+                grid-template-rows: auto 1fr auto;
+                grid-template-areas: 
+                    "header header"
+                    "sidebar main"
+                    "footer footer";
+            }
+        }
+
+        /* Hover effects */
+        div > * { transition: 0.5s; }
+        div > *:hover { opacity: 1; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>Header (Full Width)</header>
+        <aside>Sidebar</aside>
+        <main>Main Content</main>
+        <footer>Footer (Full Width)</footer>
+    </div>
+</body>
+</html>

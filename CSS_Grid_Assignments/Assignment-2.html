@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 2 - Website Layout</title>
+    <style>
+        body { margin: 0; 
+            font-family: sans-serif;
+         }
+        /* Main grid container */
+        .website-container {
+            display: grid;
+            height: 100vh;
+            /* Sidebar left, Main right */
+            /* Using grid-template-areas */
+            grid-template-areas:  "header header"  "sidebar main" "footer footer";
+            /* Sidebar takes roughly 1/4, Main takes 3/4 */
+            grid-template-columns: 250px 1fr; 
+            grid-template-rows: auto 1fr auto; 
+        }
+
+        /*Header spans full width  */
+        header { 
+            grid-area: header; 
+            background: #333; 
+            color: white; 
+            padding: 20px; 
+        }
+        
+        aside  { 
+            grid-area: sidebar;
+            background: #f4f4f4;
+            padding: 20px;
+             }
+        main   { 
+             grid-area: main;
+             background: #fff; 
+             padding: 20px; }
+
+        /*Footer spans full width */
+        footer { 
+            grid-area: footer;
+            background: #333; 
+            color: white; 
+            padding: 20px; 
+            text-align: center; 
+        }
+    </style>
+</head>
+<body>
+    <div class="website-container">
+        <header>Header</header>
+        <aside>Sidebar</aside>
+        <main>Main content</main>
+        <footer>footer</footer>
+    </div>
+</body>
+</html>
